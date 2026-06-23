@@ -1,0 +1,22 @@
+# Trust Link Partner
+
+## Company
+Trust Link Partner Co., Ltd.
+AI and DX consulting company based in Tokyo, Japan.
+Representative: Kotaro Nakamura
+Address: Plaza Nakano 801, 5-67-7 Nakano, Nakano-ku, Tokyo 164-0001
+
+## Services
+- AI導入支援（AI Implementation Support）
+- Claude導入支援（Claude AI Deployment）
+- Claude Code導入支援（Claude Code Implementation）
+- DX推進支援（DX Promotion）
+- クラウドシステム販売保守（Cloud System Sales & Maintenance）
+- 事業承継支援（Business Succession Support）
+- 業態変更支援（Business Transformation Advisory）
+- 不動産DX支援（Real Estate DX Support）
+
+## Contact
+https://trust-link-ptnr.com/contact
+info@trust-link-ptnr.com
+050-8893-4488

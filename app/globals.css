@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #238bcb;
+  --primary-deep: #1a6fa3;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #0f172a;
+  background-color: #ffffff;
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-inter-tight), var(--font-noto), sans-serif;
+}
+
+/* FOUC防止：Heroのアニメ対象要素は初期状態で非表示にし、
+   JS（GSAP）実行後に表示しながらアニメーションする。
+   完成状態を一瞬でも先に見せないための初期CSS。 */
+.hero-letter,
+.hero-line,
+.hero-brand-wrap,
+.hero-copy,
+.hero-sub,
+.hero-cta {
+  opacity: 0;
+}
+
+::selection {
+  background: rgba(35, 139, 203, 0.14);
+  color: #0f172a;
+}
+
+/* Quiet scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.14);
+  border-radius: 999px;
+}
+
+@layer components {
+  /* 弱いガラス（存在を主張しない） */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+  }
+
+  .section {
+    @apply relative px-6 py-24 md:py-32;
+  }
+  .container-tlp {
+    @apply mx-auto w-full max-w-content;
+  }
+
+  /* ラベル：小さく・静かに */
+  .eyebrow {
+    @apply font-display text-[11px] font-medium uppercase text-primary/80;
+    letter-spacing: 0.18em;
+  }
+
+  /* 細い区切りライン */
+  .hairline {
+    @apply h-px w-full bg-ink/[0.07];
+  }
+
+  /* 情報が主役のカード（装飾は最小限・角丸小さめ） */
+  .card {
+    @apply relative rounded-xl border border-ink/[0.06] bg-white p-8 shadow-subtle transition-transform duration-300 ease-out;
+  }
+  .card:hover {
+    /* 浮き上がりはさせず scale(1.01) のみ */
+    transform: scale(1.01);
+  }
+
+  /* Primary button：細く・静かに */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#0E80DB] px-6 py-2.5 text-[13px] font-medium text-white shadow-btn transition-all duration-300 ease-out hover:bg-[#0B6CBF];
+    letter-spacing: 0.03em;
+  }
+
+  /* Ghost button：境界線のみ */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-transparent px-6 py-2.5 text-[13px] font-medium text-ink/80 transition-all duration-300 ease-out hover:border-ink/30 hover:text-ink;
+    letter-spacing: 0.03em;
+  }
+}
+
+@layer utilities {
+  /* 極薄・中立色のグリッド（ほぼ知覚できないレベルまで透明度を低下） */
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.0025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.0025) 1px, transparent 1px);
+    background-size: 96px 96px;
+  }
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 14%,
+      black 86%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 14%,
+      black 86%,
+      transparent
+    );
+  }
+  /* ごく弱いノイズ */
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .text-gradient {
+    @apply bg-blue-gradient bg-clip-text text-transparent;
+  }
+}
+
+/* ===== Hero CTA（素のCSSで堅牢化：主ボタン/副ボタンを明確に分ける） ===== */
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  min-width: 128px;
+  padding: 0 28px;
+  border-radius: 24px;
+  background-color: #2b8fd8;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px rgba(43, 143, 216, 0.22);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+.cta-primary:hover {
+  background-color: #1f7cc0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(43, 143, 216, 0.3);
+}
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 24px;
+  background-color: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  color: #5f5f5f;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+.cta-secondary:hover {
+  border-color: rgba(15, 23, 42, 0.3);
+  color: #0f172a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* アニメーションを好まない場合は最初から表示する */
+  .hero-letter,
+  .hero-line,
+  .hero-brand-wrap,
+  .hero-copy,
+  .hero-sub,
+  .hero-cta {
+    opacity: 1 !important;
+  }
+}
