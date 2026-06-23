@@ -4,6 +4,14 @@ import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
+type ContactFields = {
+  name: string;
+  company: string;
+  email: string;
+  tel: string;
+  message: string;
+};
+
 const TOPICS = [
   "AI導入支援",
   "Claude Code導入支援",
@@ -18,16 +26,52 @@ const TOPICS = [
 export default function Contact() {
   const [topics, setTopics] = useState<string[]>([]);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const toggleTopic = (t: string) =>
     setTopics((prev) =>
       prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]
     );
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // フロントのみの構成。API連携時はこの handler を差し替える。
-    setSent(true);
+    setError(null);
+    setSending(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      name: ((data.get("name") as string) ?? "").trim(),
+      company: ((data.get("company") as string) ?? "").trim(),
+      email: ((data.get("email") as string) ?? "").trim(),
+      tel: ((data.get("tel") as string) ?? "").trim(),
+      message: ((data.get("message") as string) ?? "").trim(),
+      topics,
+    } satisfies ContactFields & { topics: string[] };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(body?.error ?? "送信に失敗しました。");
+      }
+
+      setSent(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "送信に失敗しました。時間をおいて再度お試しください。"
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   const fieldClass =
@@ -168,11 +212,18 @@ export default function Contact() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm font-light text-red-600" role="alert">
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="btn-primary h-[52px] w-full"
+                  disabled={sending}
+                  className="btn-primary h-[52px] w-full disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  送信する
+                  {sending ? "送信中..." : "送信する"}
                 </button>
               </form>
             )}
