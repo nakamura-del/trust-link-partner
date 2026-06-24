@@ -131,6 +131,13 @@ const TOPICS: Topic[] = [
   { slug: "pachinko-08", cat: "pachinko", title: "パチンコ業界の生き残り戦略", description: "変化の激しいパチンコ業界における、生き残り戦略を解説します。" },
   { slug: "pachinko-09", cat: "pachinko", title: "遊技場の新たな価値創造とは", description: "遊技場が取り組むべき、新たな価値創造の方向性を解説します。" },
   { slug: "pachinko-10", cat: "pachinko", title: "パチンコ業界とテクノロジーの未来", description: "パチンコ業界とテクノロジーが今後どう関わっていくのかを解説します。" },
+
+  // ===== パチンコ × Claude Code（SEO強化記事 5本） =====
+  { slug: "pachinko-claude-code-case", cat: "claude-code", title: "パチンコホールのClaude Code導入事例｜業務システムを内製化した遊技場の実例", description: "専任エンジニアのいないパチンコホールが、Claude Codeで日次レポートや景品発注の業務システムを内製化した導入事例を、具体的な成果とともに解説します。" },
+  { slug: "pachinko-claude-code-reason", cat: "claude-code", title: "パチンコ店がClaude Codeを使うべき理由｜ホール経営者向けAI活用ガイド", description: "人手不足やコスト課題に直面するパチンコ店の経営者に向けて、Claude Codeを使うべき5つの理由と遊技場での活用シーンを、AI活用ガイドとして解説します。" },
+  { slug: "pachinko-dx-claude-code", cat: "claude-code", title: "遊技場のDX化にClaude Codeが最適な理由｜パチンコ業界特化のAI導入支援", description: "汎用システムでは進まない遊技場のDX化に、なぜClaude Codeが最適なのか。パチンコ業界特化のAI導入支援の視点から、その理由を解説します。" },
+  { slug: "pachinko-automation-claude-code", cat: "claude-code", title: "パチンコ店の業務自動化｜Claude Codeで実現する遊技場のDX推進", description: "日次レポート・景品発注・業者対応など、パチンコ店に潜む手作業をClaude Codeで自動化する方法と、遊技場のDX推進を成功させる進め方を解説します。" },
+  { slug: "pachinko-ai-guide", cat: "claude-code", title: "パチンコホール・遊技場向けAI導入完全ガイド｜Claude・Claude Codeの活用事例", description: "パチンコホール・遊技場のAI導入を検討する経営者向けに、ClaudeとClaude Codeの違い、活用事例、成功する進め方、相談先の選び方までを完全ガイドとして解説します。" },
 ];
 
 type Frame = {
