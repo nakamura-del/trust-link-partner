@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// 送信先・送信元（ドメイン認証前は onboarding@resend.dev を仮利用）
+// 送信先・送信元（ドメイン認証前は noreply@trust-link-ptnr.com を仮利用）
 const TO_EMAIL = "info@trust-link-ptnr.com";
-const FROM_EMAIL = "onboarding@resend.dev";
+const FROM_EMAIL = "noreply@trust-link-ptnr.com";
 
 type ContactPayload = {
   name?: string;
