@@ -13,7 +13,7 @@ const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/release
 // ★配布ファイル（Supabase Storage の URL）が未設定（"#"）の間は、ボタンを無効表示にする。
 //   .exe 完成は数日先のため、公開しても「押しても何も起きない」状態を避ける。
 //   DOWNLOAD_URL に実URLを入れれば、自動的に通常のダウンロードボタンに切り替わる。
-const IS_AVAILABLE = DOWNLOAD_URL !== "#";
+const IS_AVAILABLE = true;
 
 export const metadata: Metadata = {
   title: "WITNESS-AI ダウンロード",
