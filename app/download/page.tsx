@@ -5,12 +5,15 @@ import Footer from "@/components/Footer";
 
 const siteUrl = "https://trust-link-ptnr.com";
 
-// ★ダウンロード本体（.exe）はリポジトリに含めず、Supabase Storage に配置してその公開URLへ差し替える。
-//   （このリポジトリは Public かつ 100MB 制限のため。URL 確定後にこの定数を書き換える。）
+// ★ダウンロード本体（.exe）はリポジトリに含めず、別リポジトリ nakamura-del/witness-ai-release の
+//   GitHub Releases にアップロードして、そのアセット直リンクをここに書く。
+//   （このリポジトリは Public かつ 100MB 制限で、.exe は約108MBのため。）
+//   版を上げるときは Release を作ってから、下の2定数を新しいタグ・ファイル名に差し替える。
+//   GitHub はアセット名の空白をドットに置換する（"WITNESS-AI Setup 0.3.0.exe" → "WITNESS-AI.Setup.0.3.0.exe"）。
 
-const APP_VERSION = "v0.2.1";
-const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/releases/download/v0.2.1/WITNESS-AI.Setup.0.2.1.exe";
-// ★配布ファイル（Supabase Storage の URL）が未設定（"#"）の間は、ボタンを無効表示にする。
+const APP_VERSION = "v0.3.0";
+const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/releases/download/v0.3.0/WITNESS-AI.Setup.0.3.0.exe";
+// ★配布ファイルの URL が未設定（"#"）の間は、ボタンを無効表示にする。
 //   .exe 完成は数日先のため、公開しても「押しても何も起きない」状態を避ける。
 //   DOWNLOAD_URL に実URLを入れれば、自動的に通常のダウンロードボタンに切り替わる。
 const IS_AVAILABLE = true;
