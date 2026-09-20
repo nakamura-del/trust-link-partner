@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "トラストリンクパートナー株式会社｜AI導入支援・DX推進・事業承継支援",
-    template: "%s｜トラストリンクパートナー株式会社",
+      "Trust Link Partner株式会社｜AI導入支援・DX推進・事業承継支援",
+    template: "%s｜Trust Link Partner株式会社",
   },
   description:
-    "トラストリンクパートナー株式会社は、中小企業向けAI導入支援、Claude Code導入支援、DX推進、クラウドシステム販売保守、パチンコホール事業承継支援、不動産DX支援を提供する伴走型パートナーです。",
+    "Trust Link Partner株式会社は、中小企業向けAI導入支援、Claude Code導入支援、DX推進、クラウドシステム販売保守、パチンコホール事業承継支援、不動産DX支援を提供する伴走型パートナーです。",
   keywords: [
     "AI導入支援",
     "Claude導入支援",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     "不動産DX",
     "トラストリンクパートナー",
   ],
-  authors: [{ name: "トラストリンクパートナー株式会社" }],
-  creator: "トラストリンクパートナー株式会社",
-  publisher: "トラストリンクパートナー株式会社",
+  authors: [{ name: "Trust Link Partner株式会社" }],
+  creator: "Trust Link Partner株式会社",
+  publisher: "Trust Link Partner株式会社",
   alternates: {
     canonical: siteUrl,
   },
@@ -54,16 +54,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: siteUrl,
-    siteName: "トラストリンクパートナー株式会社",
+    siteName: "Trust Link Partner株式会社",
     title:
-      "トラストリンクパートナー株式会社｜AI導入支援・DX推進・事業承継支援",
+      "Trust Link Partner株式会社｜AI導入支援・DX推進・事業承継支援",
     description:
       "業界知識とAIで、企業の変革を支援する。AI導入支援、DX推進、事業承継支援まで、現場に寄り添う伴走型パートナー。",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "トラストリンクパートナー株式会社｜AI導入支援・DX推進・事業承継支援",
+      "Trust Link Partner株式会社｜AI導入支援・DX推進・事業承継支援",
     description:
       "業界知識とAIで、企業の変革を支援する。現場に寄り添う伴走型パートナー。",
   },
@@ -125,7 +125,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "トラストリンクパートナー株式会社",
+      name: "Trust Link Partner株式会社",
       alternateName: "Trust Link Partner Co., Ltd.",
       url: siteUrl,
       logo: {
@@ -143,7 +143,7 @@ const jsonLd = {
     {
       "@type": "ProfessionalService",
       "@id": `${siteUrl}/#service`,
-      name: "トラストリンクパートナー株式会社",
+      name: "Trust Link Partner株式会社",
       image: `${siteUrl}/TLP_Main_Logo.png`,
       url: siteUrl,
       telephone: "+81-50-8893-4488",
@@ -162,7 +162,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "トラストリンクパートナー株式会社",
+      name: "Trust Link Partner株式会社",
       description: orgDescription,
       inLanguage: "ja",
       publisher: { "@id": `${siteUrl}/#organization` },

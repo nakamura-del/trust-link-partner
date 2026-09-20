@@ -21,7 +21,7 @@ export default function Footer() {
           <div>
             <Image
               src="/TLP_Main_Logo.png"
-              alt="トラストリンクパートナー株式会社"
+              alt="Trust Link Partner株式会社"
               width={1586}
               height={462}
               className="h-[134px] w-auto"

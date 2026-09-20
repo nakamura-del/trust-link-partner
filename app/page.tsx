@@ -14,7 +14,7 @@ const homeJsonLd = {
   "@type": "WebPage",
   "@id": `${siteUrl}/#webpage`,
   url: `${siteUrl}/`,
-  name: "トラストリンクパートナー株式会社｜AI導入支援・DX推進・事業承継支援",
+  name: "Trust Link Partner株式会社｜AI導入支援・DX推進・事業承継支援",
   isPartOf: { "@id": `${siteUrl}/#website` },
   about: { "@id": `${siteUrl}/#organization` },
   breadcrumb: {

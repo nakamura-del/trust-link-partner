@@ -30,7 +30,7 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       url,
-      title: `${p.title}｜トラストリンクパートナー株式会社`,
+      title: `${p.title}｜Trust Link Partner株式会社`,
       description: p.description,
       publishedTime: p.published,
       modifiedTime: p.updated,

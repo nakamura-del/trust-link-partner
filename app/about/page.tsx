@@ -11,12 +11,12 @@ const siteUrl = "https://trust-link-ptnr.com";
 export const metadata: Metadata = {
   title: "会社案内",
   description:
-    "トラストリンクパートナー株式会社の会社案内。代表挨拶、理念、会社概要、沿革、事業内容をご紹介します。業界知識とAIで、企業の変革を支援します。",
+    "Trust Link Partner株式会社の会社案内。代表挨拶、理念、会社概要、沿革、事業内容をご紹介します。業界知識とAIで、企業の変革を支援します。",
   alternates: { canonical: `${siteUrl}/about` },
 };
 
 const COMPANY_ROWS = [
-  { label: "会社名", value: "トラストリンクパートナー株式会社" },
+  { label: "会社名", value: "Trust Link Partner株式会社" },
   { label: "代表", value: "中村 湖太郎" },
   {
     label: "所在地",
@@ -31,7 +31,7 @@ const HISTORY = [
   {
     year: "2023",
     title: "設立",
-    body: "トラストリンクパートナー株式会社を設立。業界知識とテクノロジーを掛け合わせ、中小企業の変革に伴走することを目指して始動。",
+    body: "Trust Link Partner株式会社を設立。業界知識とテクノロジーを掛け合わせ、中小企業の変革に伴走することを目指して始動。",
   },
   {
     year: "2024",
@@ -108,7 +108,7 @@ export default function AboutPage() {
                 トラストリンクパートナーは、その差を埋めるために生まれました。私たちの役割は、最新のツールを売ることではありません。現場の業務を理解し、どこを変えれば成果が出るかを見極め、導入から定着・改善まで伴走することです。小さく始め、確実に積み上げ、現場が自走できる状態へ。地に足のついた変革を、誠実に支えていきます。
               </p>
               <p className="pt-2 text-ink">
-                トラストリンクパートナー株式会社
+                Trust Link Partner株式会社
                 <br />
                 代表　中村 湖太郎
               </p>

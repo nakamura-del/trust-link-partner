@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const ROWS = [
-  { label: "会社名", value: "トラストリンクパートナー株式会社" },
+  { label: "会社名", value: "Trust Link Partner株式会社" },
   { label: "代表", value: "中村 湖太郎" },
   {
     label: "所在地",

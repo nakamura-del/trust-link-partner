@@ -41,11 +41,11 @@ export default function Header() {
         <a
           href="/"
           className="group flex items-center"
-          aria-label="トラストリンクパートナー株式会社"
+          aria-label="Trust Link Partner株式会社"
         >
           <Image
             src="/TLP_Main_Logo.png"
-            alt="トラストリンクパートナー株式会社"
+            alt="Trust Link Partner株式会社"
             width={1586}
             height={462}
             priority

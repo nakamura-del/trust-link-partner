@@ -27,7 +27,7 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       url,
-      title: `${data.title}｜トラストリンクパートナー株式会社`,
+      title: `${data.title}｜Trust Link Partner株式会社`,
       description: data.metaDescription,
     },
   };
