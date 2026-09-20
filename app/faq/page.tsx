@@ -10,7 +10,7 @@ const siteUrl = "https://trust-link-ptnr.com";
 export const metadata: Metadata = {
   title: "よくある質問（FAQ）",
   description:
-    "トラストリンクパートナーへのよくある質問100問。AI導入、Claude、Claude Code、DX推進、事業承継について、費用・期間・進め方などを分かりやすくお答えします。",
+    "Trust Link Partnerへのよくある質問100問。AI導入、Claude、Claude Code、DX推進、事業承継について、費用・期間・進め方などを分かりやすくお答えします。",
   alternates: { canonical: `${siteUrl}/faq` },
 };
 

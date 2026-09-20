@@ -20,7 +20,7 @@ const jsonLd = {
     {
       "@type": "Blog",
       "@id": `${siteUrl}/blog#blog`,
-      name: "トラストリンクパートナー ブログ",
+      name: "Trust Link Partner ブログ",
       url: `${siteUrl}/blog`,
       isPartOf: { "@id": `${siteUrl}/#website` },
       publisher: { "@id": `${siteUrl}/#organization` },

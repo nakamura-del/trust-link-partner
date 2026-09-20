@@ -1,4 +1,4 @@
-# トラストリンクパートナー株式会社 コーポレートサイト
+# Trust Link Partner株式会社 コーポレートサイト
 
 「Trust × Technology × Transformation」をコンセプトにした、上場企業レベルの高級感を持つコーポレートサイト。
 PKSHA Technology（70%）/ Laboro.AI（30%）の世界観を参照し、Apple・OpenAI・BCG のような知的で洗練された余白設計を採用。

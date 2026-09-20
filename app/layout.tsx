@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "パチンコホール",
     "業態変更支援",
     "不動産DX",
-    "トラストリンクパートナー",
+    "Trust Link Partner",
   ],
   authors: [{ name: "Trust Link Partner株式会社" }],
   creator: "Trust Link Partner株式会社",

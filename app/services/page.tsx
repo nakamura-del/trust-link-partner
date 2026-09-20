@@ -11,7 +11,7 @@ const siteUrl = "https://trust-link-ptnr.com";
 export const metadata: Metadata = {
   title: "サービス一覧",
   description:
-    "トラストリンクパートナーが提供するサービス一覧。AI導入支援、Claude／Claude Code導入支援、DX推進、クラウドシステム販売保守、事業承継支援、業態変更支援、不動産DX支援。",
+    "Trust Link Partnerが提供するサービス一覧。AI導入支援、Claude／Claude Code導入支援、DX推進、クラウドシステム販売保守、事業承継支援、業態変更支援、不動産DX支援。",
   alternates: { canonical: `${siteUrl}/services` },
 };
 

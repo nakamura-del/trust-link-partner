@@ -11,7 +11,7 @@ const siteUrl = "https://trust-link-ptnr.com";
 export const metadata: Metadata = {
   title: "導入事例",
   description:
-    "トラストリンクパートナーの導入事例。AI導入、Claude/Claude Code、DX推進、クラウドシステム、事業承継、業態変更など、工数削減・コスト削減などの具体的な成果をご紹介します。",
+    "Trust Link Partnerの導入事例。AI導入、Claude/Claude Code、DX推進、クラウドシステム、事業承継、業態変更など、工数削減・コスト削減などの具体的な成果をご紹介します。",
   alternates: { canonical: `${siteUrl}/cases` },
 };
 
