@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Headphones, Mic, ShieldAlert } from "lucide-react";
+import { Download, Headphones, Mic, ShieldAlert } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -155,6 +155,22 @@ export default function DownloadPage() {
               初回セットアップの注意
             </h2>
 
+            {/* ダウンロード時の警告 */}
+            <div className="mt-12 border-t border-ink/[0.08] pt-10">
+              <div className="flex items-center gap-3">
+                <Download className="h-5 w-5 shrink-0 text-primary" />
+                <h3 className="text-[clamp(17px,1.8vw,22px)] font-medium tracking-luxe text-ink">
+                  ダウンロード時に警告が表示された場合
+                </h3>
+              </div>
+              <p className="mt-8 text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
+                Microsoft Edge をお使いの場合、弊社の証明書取得手続き中のため警告が表示されることがあります。Google Chrome など他のブラウザをお試しください。
+              </p>
+              <p className="mt-4 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
+                ※ 証明書の取得後（2026年10月予定）は表示されなくなります。
+              </p>
+            </div>
+
             {/* SmartScreen */}
             <div className="mt-12 border-t border-ink/[0.08] pt-10">
               <div className="flex items-center gap-3">
@@ -176,7 +192,23 @@ export default function DownloadPage() {
                 ))}
               </ol>
               <p className="mt-7 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
-                ※ 現在このアプリには電子署名を付与していないため、この警告が表示されます。動作に問題はありません。
+                ※ 現在このアプリには電子署名を付与していないため、この警告が表示されます。動作に問題はありません。証明書の取得後（2026年10月予定）は表示されなくなります。
+              </p>
+            </div>
+
+            {/* Smart App Control */}
+            <div className="mt-12 border-t border-ink/[0.08] pt-10">
+              <div className="flex items-center gap-3">
+                <ShieldAlert className="h-5 w-5 shrink-0 text-primary" />
+                <h3 className="text-[clamp(17px,1.8vw,22px)] font-medium tracking-luxe text-ink">
+                  インストールできない場合
+                </h3>
+              </div>
+              <p className="mt-8 text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
+                まれに Windows のセキュリティ機能「スマート アプリ コントロール」によって、インストールが止められることがあります。この場合は「詳細情報 → 実行」では回避できません。
+              </p>
+              <p className="mt-4 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
+                ※ お手数ですが info@trust-link-ptnr.com までご連絡ください。こちらも証明書の取得後は発生しなくなります。
               </p>
             </div>
 
