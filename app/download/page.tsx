@@ -11,8 +11,11 @@ const siteUrl = "https://trust-link-ptnr.com";
 //   版を上げるときは Release を作ってから、下の2定数を新しいタグ・ファイル名に差し替える。
 //   GitHub はアセット名の空白をドットに置換する（"WITNESS-AI Setup 0.3.0.exe" → "WITNESS-AI.Setup.0.3.0.exe"）。
 
-const APP_VERSION = "v0.3.2";
-const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/releases/download/v0.3.2/WITNESS-AI.Setup.0.3.2.exe";
+const APP_VERSION = "v0.3.3";
+const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/releases/download/v0.3.3/WITNESS-AI.Setup.0.3.3.exe";
+// 配布ファイルの SHA256。GitHub Release に上がっている実体から取得した値。
+// ★バージョンを上げるたびに必ず更新すること（古い値を残すと検証が通らない）。
+const SHA256 = "8cc04abeb28dbf6a11e8cbb76234e07a64ec9f53d2fdab960bee6849291ca2f5";
 // ★配布ファイルの URL が未設定（"#"）の間は、ボタンを無効表示にする。
 //   .exe 完成は数日先のため、公開しても「押しても何も起きない」状態を避ける。
 //   DOWNLOAD_URL に実URLを入れれば、自動的に通常のダウンロードボタンに切り替わる。
@@ -110,6 +113,19 @@ export default function DownloadPage() {
                 </dt>
                 <dd className="text-[clamp(16px,1.5vw,20px)] font-light leading-[1.7] text-ink">
                   {APP_VERSION}
+                </dd>
+              </div>
+              {/* ダウンロードしたファイルが改変されていないかを確かめるための値。
+                  PowerShell で Get-FileHash を実行し、この値と一致すれば正規のファイル。 */}
+              <div className="grid grid-cols-1 gap-2 border-b border-ink/[0.08] py-6 sm:grid-cols-[160px_1fr] sm:gap-8">
+                <dt
+                  className="font-display text-[12px] font-medium uppercase text-subtle"
+                  style={{ letterSpacing: "0.16em" }}
+                >
+                  SHA-256
+                </dt>
+                <dd className="break-all font-mono text-[clamp(12px,1.1vw,14px)] font-light leading-[1.7] text-subtle">
+                  {SHA256}
                 </dd>
               </div>
             </dl>
