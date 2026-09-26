@@ -8,14 +8,17 @@ const siteUrl = "https://trust-link-ptnr.com";
 // ★ダウンロード本体（.exe）はリポジトリに含めず、別リポジトリ nakamura-del/witness-ai-release の
 //   GitHub Releases にアップロードして、そのアセット直リンクをここに書く。
 //   （このリポジトリは Public かつ 100MB 制限で、.exe は約108MBのため。）
-//   版を上げるときは Release を作ってから、下の2定数を新しいタグ・ファイル名に差し替える。
+//   版を上げるときは Release を作ってから、下の定数（版・URL・SHA256・サイズ）を差し替える。
 //   GitHub はアセット名の空白をドットに置換する（"WITNESS-AI Setup 0.3.0.exe" → "WITNESS-AI.Setup.0.3.0.exe"）。
 
-const APP_VERSION = "v0.3.3";
-const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/releases/download/v0.3.3/WITNESS-AI.Setup.0.3.3.exe";
-// 配布ファイルの SHA256。GitHub Release に上がっている実体から取得した値。
+const APP_VERSION = "v0.3.4";
+const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/releases/download/v0.3.4/WITNESS-AI.Setup.0.3.4.exe";
+// 配布ファイルの SHA256 とバイト数。GitHub Release に上がっている実体から取得した値。
 // ★バージョンを上げるたびに必ず更新すること（古い値を残すと検証が通らない）。
-const SHA256 = "8cc04abeb28dbf6a11e8cbb76234e07a64ec9f53d2fdab960bee6849291ca2f5";
+//   v0.3.4 以降は Azure Artifact Signing で署名しており、再ビルドすると署名・タイムスタンプが
+//   打ち直されて値が変わる。必ず配布した実ファイルから取ること。
+const SHA256 = "5a4dd120f6e1779ceeba339cd3c22822a7ea3975d4ce2cf725419a5f8b26a8e1";
+const FILE_SIZE = "109,299,696 バイト（約104 MB）";
 // ★配布ファイルの URL が未設定（"#"）の間は、ボタンを無効表示にする。
 //   .exe 完成は数日先のため、公開しても「押しても何も起きない」状態を避ける。
 //   DOWNLOAD_URL に実URLを入れれば、自動的に通常のダウンロードボタンに切り替わる。
@@ -128,6 +131,17 @@ export default function DownloadPage() {
                   {SHA256}
                 </dd>
               </div>
+              <div className="grid grid-cols-1 gap-2 border-b border-ink/[0.08] py-6 sm:grid-cols-[160px_1fr] sm:gap-8">
+                <dt
+                  className="font-display text-[12px] font-medium uppercase text-subtle"
+                  style={{ letterSpacing: "0.16em" }}
+                >
+                  Size
+                </dt>
+                <dd className="font-mono text-[clamp(12px,1.1vw,14px)] font-light leading-[1.7] text-subtle">
+                  {FILE_SIZE}
+                </dd>
+              </div>
             </dl>
           </div>
         </section>
@@ -180,10 +194,10 @@ export default function DownloadPage() {
                 </h3>
               </div>
               <p className="mt-8 text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
-                Microsoft Edge をお使いの場合、弊社の証明書取得手続き中のため警告が表示されることがあります。Google Chrome など他のブラウザをお試しください。
+                Microsoft Edge をお使いの場合、ダウンロード時に警告が表示されることがあります。Google Chrome など他のブラウザをお試しください。
               </p>
               <p className="mt-4 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
-                ※ 証明書の取得後（2026年10月予定）は表示されなくなります。
+                ※ ダウンロード実績の少ないアプリでは、電子署名があっても表示されることがあります。
               </p>
             </div>
 
@@ -208,23 +222,7 @@ export default function DownloadPage() {
                 ))}
               </ol>
               <p className="mt-7 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
-                ※ 現在このアプリには電子署名を付与していないため、この警告が表示されます。動作に問題はありません。証明書の取得後（2026年10月予定）は表示されなくなります。
-              </p>
-            </div>
-
-            {/* Smart App Control */}
-            <div className="mt-12 border-t border-ink/[0.08] pt-10">
-              <div className="flex items-center gap-3">
-                <ShieldAlert className="h-5 w-5 shrink-0 text-primary" />
-                <h3 className="text-[clamp(17px,1.8vw,22px)] font-medium tracking-luxe text-ink">
-                  インストールできない場合
-                </h3>
-              </div>
-              <p className="mt-8 text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
-                まれに Windows のセキュリティ機能「スマート アプリ コントロール」によって、インストールが止められることがあります。この場合は「詳細情報 → 実行」では回避できません。
-              </p>
-              <p className="mt-4 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
-                ※ お手数ですが info@trust-link-ptnr.com までご連絡ください。こちらも証明書の取得後は発生しなくなります。
+                ※ このアプリには発行元「Trust Link Partner Co., Ltd.」の電子署名を付与しています。ダウンロード実績の少ないアプリでは、署名があってもこの警告が表示されることがあります。「詳細情報」をクリックした際に、発行元が「Trust Link Partner Co., Ltd.」と表示されていることをご確認ください。
               </p>
             </div>
 
