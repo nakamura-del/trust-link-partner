@@ -11,14 +11,14 @@ const siteUrl = "https://trust-link-ptnr.com";
 //   版を上げるときは Release を作ってから、下の定数（版・URL・SHA256・サイズ）を差し替える。
 //   GitHub はアセット名の空白をドットに置換する（"WITNESS-AI Setup 0.3.0.exe" → "WITNESS-AI.Setup.0.3.0.exe"）。
 
-const APP_VERSION = "v0.3.4";
-const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/releases/download/v0.3.4/WITNESS-AI.Setup.0.3.4.exe";
+const APP_VERSION = "v0.3.5";
+const DOWNLOAD_URL = "https://github.com/nakamura-del/witness-ai-release/releases/download/v0.3.5/WITNESS-AI.Setup.0.3.5.exe";
 // 配布ファイルの SHA256 とバイト数。GitHub Release に上がっている実体から取得した値。
 // ★バージョンを上げるたびに必ず更新すること（古い値を残すと検証が通らない）。
 //   v0.3.4 以降は Azure Artifact Signing で署名しており、再ビルドすると署名・タイムスタンプが
 //   打ち直されて値が変わる。必ず配布した実ファイルから取ること。
-const SHA256 = "5a4dd120f6e1779ceeba339cd3c22822a7ea3975d4ce2cf725419a5f8b26a8e1";
-const FILE_SIZE = "109,299,696 バイト（約104 MB）";
+const SHA256 = "8ec4f821b44f2218b4ff1a2c30c0461aaaff16a91a787bd04d453f67bafe90ee";
+const FILE_SIZE = "109,304,312 バイト（約104 MB）";
 // ★配布ファイルの URL が未設定（"#"）の間は、ボタンを無効表示にする。
 //   .exe 完成は数日先のため、公開しても「押しても何も起きない」状態を避ける。
 //   DOWNLOAD_URL に実URLを入れれば、自動的に通常のダウンロードボタンに切り替わる。
