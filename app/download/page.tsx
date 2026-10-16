@@ -44,6 +44,13 @@ function Label({ children }: { children: React.ReactNode }) {
   );
 }
 
+// ダウンロード直後のブラウザの警告（「一般的にダウンロードされていない」）。2026-10-16 実機で確認した操作。
+const INSTALL_WARNING_STEPS = [
+  "「削除」ボタンの右にある「∨」をクリックします。",
+  "「保持する」をクリックします。",
+  "ダウンロードしたファイルを実行します。",
+];
+
 const SMARTSCREEN_STEPS = [
   "表示された画面で「詳細情報」をクリックします。",
   "続けて表示される「実行」をクリックすると、インストールが始まります。",
@@ -85,6 +92,45 @@ export default function DownloadPage() {
                 ? `バージョン ${APP_VERSION}（Windows 版）`
                 : `バージョン ${APP_VERSION}（Windows 版）｜ダウンロードの公開まで今しばらくお待ちください。`}
             </p>
+
+            {/* インストール時の警告（ダウンロード直後のブラウザの SmartScreen 表示）。
+                ★折りたたまずに常に見せる。「発行元が違えばインストールしない」の一文は偽物対策なので消さない。 */}
+            <div className="mt-12 overflow-hidden rounded-2xl border border-primary/25 bg-primary/[0.05]">
+              <div className="border-b border-primary/15 bg-primary/[0.06] px-8 py-5 md:px-10">
+                <div className="flex items-center gap-3">
+                  <ShieldAlert className="h-5 w-5 shrink-0 text-primary" />
+                  <h2 className="text-[clamp(17px,1.8vw,22px)] font-medium tracking-luxe text-ink">
+                    インストール時の警告について
+                  </h2>
+                </div>
+              </div>
+              <div className="px-8 py-8 md:px-10 md:py-9">
+                <p className="text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
+                  ダウンロード時に「このファイルは一般的にダウンロードされていないため…」という警告が表示されることがあります。公開して間もないソフトウェアに Windows が表示するもので、危険を知らせるものではありません。
+                </p>
+                <p className="mt-5 text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
+                  発行元が「Trust Link Partner Co., Ltd.」と表示されていることをご確認のうえ、次の操作でお進みください。
+                </p>
+                <ol className="mt-7 space-y-5">
+                  {INSTALL_WARNING_STEPS.map((step, i) => (
+                    <li key={i} className="flex items-start gap-5">
+                      <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 font-display text-[15px] font-medium tabular-nums text-primary">
+                        {i + 1}
+                      </span>
+                      <p className="text-[clamp(15px,1.3vw,17px)] font-light leading-[1.9] text-ink">
+                        {step}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+                <p className="mt-7 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
+                  ※「詳細情報」は Microsoft の説明ページへのリンクです。そこからは進めません。
+                </p>
+                <p className="mt-2 text-[clamp(14px,1.2vw,15px)] font-medium leading-[1.9] text-ink">
+                  ※ 発行元の表示が「Trust Link Partner Co., Ltd.」以外の場合は、インストールせず弊社（info@trust-link-ptnr.com）までご連絡ください。
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
