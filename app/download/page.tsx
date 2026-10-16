@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Download, Headphones, Mic, ShieldAlert } from "lucide-react";
+import { Headphones, Mic, ShieldAlert } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -51,11 +51,6 @@ const INSTALL_WARNING_STEPS = [
   "ダウンロードしたファイルを実行します。",
 ];
 
-const SMARTSCREEN_STEPS = [
-  "表示された画面で「詳細情報」をクリックします。",
-  "続けて表示される「実行」をクリックすると、インストールが始まります。",
-];
-
 export default function DownloadPage() {
   return (
     <>
@@ -92,10 +87,23 @@ export default function DownloadPage() {
                 ? `バージョン ${APP_VERSION}（Windows 版）`
                 : `バージョン ${APP_VERSION}（Windows 版）｜ダウンロードの公開まで今しばらくお待ちください。`}
             </p>
+            {/* ボタンを押す前に警告が出ることを知らせる（押してから慌てないように）。 */}
+            {IS_AVAILABLE && (
+              <p className="mt-2 text-[13px] font-light leading-[1.8] text-subtle">
+                ※ ダウンロード時に警告が表示されます。下の
+                <a href="#install-warning" className="text-primary underline underline-offset-4">
+                  「インストール時の警告について」
+                </a>
+                をご覧ください。
+              </p>
+            )}
 
             {/* インストール時の警告（ダウンロード直後のブラウザの SmartScreen 表示）。
                 ★折りたたまずに常に見せる。「発行元が違えばインストールしない」の一文は偽物対策なので消さない。 */}
-            <div className="mt-12 overflow-hidden rounded-2xl border border-primary/25 bg-primary/[0.05]">
+            <div
+              id="install-warning"
+              className="mt-12 scroll-mt-28 overflow-hidden rounded-2xl border border-primary/25 bg-primary/[0.05]"
+            >
               <div className="border-b border-primary/15 bg-primary/[0.06] px-8 py-5 md:px-10">
                 <div className="flex items-center gap-3">
                   <ShieldAlert className="h-5 w-5 shrink-0 text-primary" />
@@ -111,6 +119,11 @@ export default function DownloadPage() {
                 <p className="mt-5 text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
                   発行元が「Trust Link Partner Co., Ltd.」と表示されていることをご確認のうえ、次の操作でお進みください。
                 </p>
+                {/* ★この注意はダウンロード時の警告の「詳細情報」のこと。下の「PC が保護されました」の
+                    「詳細情報」（押すと「実行」が出る）とは別物なので、手順の後ろに置かない。 */}
+                <p className="mt-3 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
+                  ※ この警告の「詳細情報」は Microsoft の説明ページへのリンクです。そこからは進めません。
+                </p>
                 <ol className="mt-7 space-y-5">
                   {INSTALL_WARNING_STEPS.map((step, i) => (
                     <li key={i} className="flex items-start gap-5">
@@ -123,10 +136,11 @@ export default function DownloadPage() {
                     </li>
                   ))}
                 </ol>
-                <p className="mt-7 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
-                  ※「詳細情報」は Microsoft の説明ページへのリンクです。そこからは進めません。
+                {/* SmartScreen の設定は端末ごとに違うため、10/16 の実機で出なかったが案内は残す。 */}
+                <p className="mt-7 text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
+                  なお、ファイルを実行した際に「Windows によって PC が保護されました」と表示された場合は、「詳細情報」をクリックし、続けて表示される「実行」をクリックしてください。（この画面は表示されないことがほとんどです）
                 </p>
-                <p className="mt-2 text-[clamp(14px,1.2vw,15px)] font-medium leading-[1.9] text-ink">
+                <p className="mt-7 text-[clamp(14px,1.2vw,15px)] font-medium leading-[1.9] text-ink">
                   ※ 発行元の表示が「Trust Link Partner Co., Ltd.」以外の場合は、インストールせず弊社（info@trust-link-ptnr.com）までご連絡ください。
                 </p>
               </div>
@@ -231,46 +245,8 @@ export default function DownloadPage() {
               初回セットアップの注意
             </h2>
 
-            {/* ダウンロード時の警告 */}
-            <div className="mt-12 border-t border-ink/[0.08] pt-10">
-              <div className="flex items-center gap-3">
-                <Download className="h-5 w-5 shrink-0 text-primary" />
-                <h3 className="text-[clamp(17px,1.8vw,22px)] font-medium tracking-luxe text-ink">
-                  ダウンロード時に警告が表示された場合
-                </h3>
-              </div>
-              <p className="mt-8 text-[clamp(15px,1.3vw,17px)] font-light leading-[2] text-ink">
-                Microsoft Edge をお使いの場合、ダウンロード時に警告が表示されることがあります。Google Chrome など他のブラウザをお試しください。
-              </p>
-              <p className="mt-4 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
-                ※ ダウンロード実績の少ないアプリでは、電子署名があっても表示されることがあります。
-              </p>
-            </div>
-
-            {/* SmartScreen */}
-            <div className="mt-12 border-t border-ink/[0.08] pt-10">
-              <div className="flex items-center gap-3">
-                <ShieldAlert className="h-5 w-5 shrink-0 text-primary" />
-                <h3 className="text-[clamp(17px,1.8vw,22px)] font-medium tracking-luxe text-ink">
-                  「Windows によって PC が保護されました」と表示された場合
-                </h3>
-              </div>
-              <ol className="mt-8 space-y-5">
-                {SMARTSCREEN_STEPS.map((step, i) => (
-                  <li key={i} className="flex items-start gap-5">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 font-display text-[15px] font-medium tabular-nums text-primary">
-                      {i + 1}
-                    </span>
-                    <p className="text-[clamp(15px,1.3vw,17px)] font-light leading-[1.9] text-ink">
-                      {step}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-              <p className="mt-7 text-[clamp(14px,1.2vw,15px)] font-light leading-[1.9] text-subtle">
-                ※ このアプリには発行元「Trust Link Partner Co., Ltd.」の電子署名を付与しています。ダウンロード実績の少ないアプリでは、署名があってもこの警告が表示されることがあります。「詳細情報」をクリックした際に、発行元が「Trust Link Partner Co., Ltd.」と表示されていることをご確認ください。
-              </p>
-            </div>
+            {/* ダウンロード時・実行時の警告は上の「インストール時の警告について」に集約した（10/16）。
+                ★「別のブラウザを試す」は案内しない（警告はファイルの評価で出るのでブラウザを変えても消えない）。 */}
 
             {/* マイク権限 */}
             <div className="mt-12 border-t border-ink/[0.08] pt-10">
